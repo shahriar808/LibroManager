@@ -28,6 +28,12 @@ public class Book {
     @Column(name = "description", nullable = false, length = 250)
     private String description;
 
+    public Book(String description, String name, String isbn) {
+        this.description = description;
+        this.name = name;
+        this.isbn = isbn;
+    }
+
     @ManyToMany(cascade = {CascadeType.ALL} )
     @JoinTable(name = "books_authors",
             joinColumns = {@JoinColumn(name = "book_id")},

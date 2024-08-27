@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Book</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-header {
+            background-color: #343a40; /* Dark background color for the header */
+            color: #ffffff; /* White text color for the header */
+        }
+        .card-body {
+            background-color: #f8f9fa; /* Light background color for the body */
+            color: #000000; /* Dark text color for readability */
+        }
+    </style>
+</head>
+<body>
+<!-- Include the header fragment -->
+<div th:replace="fragments/header :: header"></div>
+
+<div class="container mt-5">
+    <h2 class="text-center">Update Book</h2>
+    <div class="card mt-4">
+        <div class="card-header">
+            <h4>Update Book Details</h4>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/books/save-update/{id}(id=${book.id})}" method="post" th:object="${book}">
+                <div class="form-group">
+                    <label for="isbn" class="font-weight-bold">ISBN</label>
+                    <input type="text" id="isbn" class="form-control" th:field="*{isbn}" placeholder="Enter ISBN">
+                </div>
+                <div class="form-group">
+                    <label for="name" class="font-weight-bold">Book Name</label>
+                    <input type="text" id="name" class="form-control" th:field="*{name}" placeholder="Enter Book Name">
+                </div>
+                <div class="form-group">
+                    <label for="description" class="font-weight-bold">Description</label>
+                    <textarea id="description" class="form-control" th:field="*{description}" placeholder="Enter Description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="category" class="font-weight-bold">Category</label>
+                    <select id="category" class="form-control" th:field="*{categories}">
+                        <option th:each="category : ${categories}" th:value="${category.id}"
+                                th:text="${category.name}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="publisher" class="font-weight-bold">Publisher</label>
+                    <select id="publisher" class="form-control" th:field="*{publishers}">
+                        <option th:each="publisher : ${publishers}" th:value="${publisher.id}"
+                                th:text="${publisher.name}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="author" class="font-weight-bold">Author</label>
+                    <select id="author" class="form-control" th:field="*{authors}">
+                        <option th:each="author : ${authors}" th:value="${author.id}"
+                                th:text="${author.name}">
+                        </option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <a th:href="@{/books}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies via CDN -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

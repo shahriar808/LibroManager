@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .hero-section {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+        }
+        .card-header {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+        .card-body {
+            background-color: #f8f9fa;
+        }
+        .nav-link:hover {
+            background-color: #495057;
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+<body>
+<!-- Include the header fragment -->
+<div th:replace="fragments/header :: header"></div>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="container">
+        <h1>Welcome to the Library Management System</h1>
+        <p>Manage your library efficiently with our system. Track books, categories, authors, publishers, and more!</p>
+    </div>
+</div>
+
+<!-- Main Content Section -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-header">Books</div>
+                <div class="card-body">
+                    <p class="card-text">View and manage all the books in the library.</p>
+                    <a th:href="@{/books}" class="btn btn-primary">Manage Books</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-header">Categories</div>
+                <div class="card-body">
+                    <p class="card-text">Organize books by categories.</p>
+                    <a th:href="@{/categories}" class="btn btn-primary">Manage Categories</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-header">Authors & Publishers</div>
+                <div class="card-body">
+                    <p class="card-text">Manage authors and publishers information.</p>
+                    <a th:href="@{/authors}" class="btn btn-primary">Manage Authors</a>
+                    <a th:href="@{/publishers}" class="btn btn-primary mt-2">Manage Publishers</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center mt-5">
+    <p>&copy; 2024 Library Management System. All rights reserved.</p>
+</footer>
+
+<!-- Bootstrap JS and dependencies via CDN -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
