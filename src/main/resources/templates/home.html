@@ -6,83 +6,123 @@
     <title>Library Management System</title>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
     <style>
         .hero-section {
-            background-color: #343a40;
-            color: #ffffff;
-            padding: 60px 0;
+            background: url('/image/background.jpg?text=Library+Hero+Image') no-repeat center center;
+            background-size: cover;
+            color: white;
             text-align: center;
+            padding: 100px 0;
+            margin-bottom: 0;
         }
+
         .hero-section h1 {
             font-size: 3rem;
-            margin-bottom: 20px;
+            font-weight: bold;
         }
+
         .hero-section p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
         }
-        .card-header {
-            background-color: #343a40;
-            color: #ffffff;
+
+        .background-section {
+            background: url('/image/section-background.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 50px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            margin: 0;
         }
+
+        .background-section .row {
+            margin-top: -400px;
+        }
+
+        .container-custom {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        .feature-card {
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05);
+        }
+
         .card-body {
-            background-color: #f8f9fa;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
         }
-        .nav-link:hover {
-            background-color: #495057;
-            color: #ffffff !important;
-        }
+
     </style>
 </head>
 <body>
 <!-- Include the header fragment -->
 <div th:replace="fragments/header :: header"></div>
 
-<!-- Hero Section -->
 <div class="hero-section">
     <div class="container">
         <h1>Welcome to the Library Management System</h1>
-        <p>Manage your library efficiently with our system. Track books, categories, authors, publishers, and more!</p>
+        <p>Your gateway to a world of knowledge and books.</p>
+        <a th:href="@{/books}" class="btn btn-custom btn-lg">Explore Books</a>
     </div>
 </div>
 
-<!-- Main Content Section -->
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-header">Books</div>
-                <div class="card-body">
-                    <p class="card-text">View and manage all the books in the library.</p>
-                    <a th:href="@{/books}" class="btn btn-primary">Manage Books</a>
+<div class="background-section">
+    <div class="container container-custom">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card feature-card">
+                    <img src="/image/category.jpeg?text=Categories" class="card-img-top" alt="Categories">
+                    <div class="card-body">
+                        <h5 class="card-title">Categories</h5>
+                        <p class="card-text">Browse and manage book categories.</p>
+                        <a th:href="@{/categories}" class="btn btn-custom">View Categories</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-header">Categories</div>
-                <div class="card-body">
-                    <p class="card-text">Organize books by categories.</p>
-                    <a th:href="@{/categories}" class="btn btn-primary">Manage Categories</a>
+            <div class="col-md-4 mb-4">
+                <div class="card feature-card">
+                    <img src="/image/publisher.jpeg?text=Publishers" class="card-img-top" alt="Publishers">
+                    <div class="card-body">
+                        <h5 class="card-title">Publishers</h5>
+                        <p class="card-text">Manage and explore book publishers.</p>
+                        <a th:href="@{/publishers}" class="btn btn-custom">View Publishers</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-header">Authors & Publishers</div>
-                <div class="card-body">
-                    <p class="card-text">Manage authors and publishers information.</p>
-                    <a th:href="@{/authors}" class="btn btn-primary">Manage Authors</a>
-                    <a th:href="@{/publishers}" class="btn btn-primary mt-2">Manage Publishers</a>
+            <div class="col-md-4 mb-4">
+                <div class="card feature-card">
+                    <img src="/image/author.jpeg?text=Authors" class="card-img-top" alt="Authors">
+                    <div class="card-body">
+                        <h5 class="card-title">Authors</h5>
+                        <p class="card-text">Discover and manage book authors.</p>
+                        <a th:href="@{/authors}" class="btn btn-custom">View Authors</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<!-- Footer -->
-<footer class="text-center mt-5">
-    <p>&copy; 2024 Library Management System. All rights reserved.</p>
-</footer>
 
 <!-- Bootstrap JS and dependencies via CDN -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

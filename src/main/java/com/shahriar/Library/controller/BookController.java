@@ -29,11 +29,6 @@ public class BookController {
         this.publisherService = publisherService;
     }
 
-    @GetMapping("/home")
-    public String home(Model model) {
-        return "home";
-    }
-
     @GetMapping("/books")
     public String findAllBooks(Model model) {
         List<Book> books = bookService.findAllBooks();
