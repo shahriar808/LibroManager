@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Category</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<!-- Include the header fragment -->
+<div th:replace="fragments/header :: header"></div>
+
+<div class="container mt-5">
+    <h2>Update Category</h2>
+    <div class="card mt-4">
+        <div class="card-header bg-dark text-white">
+            Update Category Details
+        </div>
+        <div class="card-body">
+            <form th:action="@{/categories/save-update/{id}(id=${categories.id})}" th:object="${categories}" method="post">
+                <div class="form-group">
+                    <label for="name"><strong>Category Name:</strong></label>
+                    <input type="text" id="name" class="form-control" th:field="*{name}" placeholder="Enter category name" required>
+                </div>
+                <button type="submit" class="btn btn-success">Save</button>
+                <a th:href="@{/categories}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies via CDN -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -30,6 +30,7 @@
         <div class="card-body">
             <p class="card-text"><strong>ISBN:</strong> <span th:text="${book.isbn}">123456789</span></p>
             <p class="card-text"><strong>Description:</strong> <span th:text="${book.description}">A great book on...</span></p>
+            <p class="card-text"><strong>Category:</strong> <span th:text="${book.categories[0].name}">Publisher Name</span></p>
             <p class="card-text"><strong>Publisher:</strong> <span th:text="${book.publishers[0].name}">Publisher Name</span></p>
             <p class="card-text"><strong>Author:</strong> <span th:text="${book.authors[0].name}">Author Name</span></p>
         </div>
