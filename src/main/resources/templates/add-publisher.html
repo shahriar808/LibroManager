@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Publisher</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<!-- Include the header fragment -->
+<div th:replace="fragments/header :: header"></div>
+
+<div class="container mt-5">
+    <h2>Add Publisher</h2>
+    <div class="card mt-4">
+        <div class="card-header bg-dark text-white">
+            Add New Publisher
+        </div>
+        <div class="card-body">
+            <form th:action="@{/publishers/save}" th:object="${publisher}" method="post">
+                <div class="form-group">
+                    <label for="name"><strong>Publisher Name:</strong></label>
+                    <input type="text" id="name" class="form-control" th:field="*{name}" placeholder="Enter publisher name" required>
+                </div>
+                <button type="submit" class="btn btn-success">Save</button>
+                <a th:href="@{/publishers}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies via CDN -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
